@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 /**
  *Simple program replicating an ATM
@@ -25,33 +24,55 @@ public class TransactionProcess {
         transferBalance = 0;        
         printToConsole = "Enter the amount you would like to ";
         
+        //display user balance
+        System.out.println("Your current balance is: £" + balance);
+        
+        //
             //Increase balance by user input
             System.out.println(printToConsole + "deposit: £");
-            double deposit;
-            deposit = in.nextDouble();
-            balance += deposit;
+            double amount;
+            amount = in.nextDouble();
+            balance += amount;
             //Compute deposit
-            if((deposit <= 0) || (deposit <5)){
+            if((amount <= 0) || (amount <5)){
                 System.out.println("Enter an amount greater than £5");
-                deposit = in.nextDouble();
-                balance += deposit;
-            } else if(deposit >= 5){
+                amount = in.nextDouble();
+                balance += amount;
+            } else if(amount >= 5){
                 System.out.println("Balance: £" + balance);              
             } else{ //reject negative balance
                     System.out.println("Account Overdrawn");
            } 
             //Add the decision to deposit or to transfer
-            
+            /**
+             *  deposit = true;
+                if(deposit != true){
+                System.out.println(printToConsole + "withdraw: ");
+                double withdrawal;
+                withdrawal = in.nextDouble();
+                if(balance < withdrawal){
+                    while(balance < withdrawal)
+                    {
+                        System.out.println("Insufficient funds");
+                        System.out.println("Your avaliable balance is £" + balance);
+                        System.out.println(printToConsole + "withdraw: £");
+                        withdrawal = in.nextDouble();    
+                    }
+                }
+                balance -= withdrawal;
+                System.out.println("Your new balance is: " + "£" + balance);
+            }*/  
             //Withdraw a given amount
+           
             System.out.println(printToConsole + "withdraw: ");
             double withdrawal;
             withdrawal = in.nextDouble();
             if(balance < withdrawal){
-                while(balance < withdrawal)
+             while(balance < withdrawal)
                 {
                     System.out.println("Insufficient funds");
                     System.out.println("Your avaliable balance is £" + balance);
-                    System.out.println(printToConsole + "withdraw: £");
+                    System.out.println(printToConsole + "withdraw: ");
                     withdrawal = in.nextDouble();    
                 }
             }
@@ -59,16 +80,21 @@ public class TransactionProcess {
             System.out.println("Your new balance is: " + "£" + balance);
             
             //Send given amount to new balance
+            System.out.println(printToConsole + "transfer: ");
             double transferAmount;
-                transferAmount = in.nextDouble();
-            if(transferAmount > balance)
-            {
-                System.out.println("Insufficient funds");
-            } else {
-                System.out.println("You have transfered: " + "£" + transferBalance);
-                System.out.println(printToConsole + "transfer: £");
-                transferAmount = in.nextDouble();
+            transferAmount = in.nextDouble();
+            if(balance < transferAmount){
+                while(balance < transferAmount)
+                {
+                    System.out.println("Insufficient funds");
+                    System.out.println("Your avaliable balance is £" + balance);
+                    System.out.println(printToConsole + "transfer: ");
+                    transferAmount = in.nextDouble();
+                } 
+            }
                 transferBalance += transferAmount;
+                System.out.println("You have transfered: " + "£" + transferBalance);
+                
                 //Print Remaining balance
                 System.out.println("Account balance: " + "£" + balance);
                 
@@ -76,5 +102,3 @@ public class TransactionProcess {
                 //System.out.println("Transfer balance: " + "£" + transferBalance);
             }
     }
-    
-}
