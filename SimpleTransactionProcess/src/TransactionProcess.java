@@ -1,15 +1,13 @@
 
 import java.util.Scanner;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author harun
+ *Simple program replicating an ATM
+ * An account balance is read from the Scanner
+ * The user then as the option of either making a deposit, withdrawal or
+ * transferring funds to a different account.
+ * 
+ * @author Harun Richards
+ * @version 1.2
  */
 public class TransactionProcess {
 
@@ -17,10 +15,8 @@ public class TransactionProcess {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Initialize User Input
+        //Variables
         Scanner in = new Scanner(System.in);
-      
-        //list variables
         double balance;
         double transferBalance;
         String printToConsole;
@@ -31,15 +27,15 @@ public class TransactionProcess {
         
             //Increase balance by user input
             System.out.println(printToConsole + "deposit: £");
-            double amount;
-            amount = in.nextDouble();
-            balance += amount;
+            double deposit;
+            deposit = in.nextDouble();
+            balance += deposit;
             //Compute deposit
-            if((amount <= 0) || (amount <5)){
+            if((deposit <= 0) || (deposit <5)){
                 System.out.println("Enter an amount greater than £5");
-                amount = in.nextDouble();
-                balance += balance;
-            } else if(amount >= 5){
+                deposit = in.nextDouble();
+                balance += deposit;
+            } else if(deposit >= 5){
                 System.out.println("Balance: £" + balance);              
             } else{ //reject negative balance
                     System.out.println("Account Overdrawn");
@@ -47,7 +43,7 @@ public class TransactionProcess {
             //Add the decision to deposit or to transfer
             
             //Withdraw a given amount
-            System.out.println("Enter the amount you would like to withdraw: ");
+            System.out.println(printToConsole + "withdraw: ");
             double withdrawal;
             withdrawal = in.nextDouble();
             if(balance < withdrawal){
@@ -55,7 +51,7 @@ public class TransactionProcess {
                 {
                     System.out.println("Insufficient funds");
                     System.out.println("Your avaliable balance is £" + balance);
-                    System.out.println("Enter the amount you would like to withdraw: £");
+                    System.out.println(printToConsole + "withdraw: £");
                     withdrawal = in.nextDouble();    
                 }
             }
@@ -63,17 +59,16 @@ public class TransactionProcess {
             System.out.println("Your new balance is: " + "£" + balance);
             
             //Send given amount to new balance
-            System.out.println("Enter the amount you would like to transfer: £");
             double transferAmount;
-            transferAmount = in.nextDouble();
-            if(balance < transferAmount)
+                transferAmount = in.nextDouble();
+            if(transferAmount > balance)
             {
                 System.out.println("Insufficient funds");
             } else {
-                System.out.println("Enter the amount you would like to transfer: £");
+                System.out.println("You have transfered: " + "£" + transferBalance);
+                System.out.println(printToConsole + "transfer: £");
                 transferAmount = in.nextDouble();
                 transferBalance += transferAmount;
-                System.out.println("You have transfered: " + "£" + transferBalance);
                 //Print Remaining balance
                 System.out.println("Account balance: " + "£" + balance);
                 
