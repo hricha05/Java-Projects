@@ -29,7 +29,7 @@ public class TransactionProcess {
         
         //
             //Increase balance by user input
-            System.out.println(printToConsole + "deposit: £");
+            System.out.println(printToConsole + "deposit: ");
             double amount;
             amount = in.nextDouble();
             balance += amount;
