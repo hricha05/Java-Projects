@@ -11,13 +11,13 @@ package bankaccount;
  */
 public class Account {
     private int accountId;
-    private char accountType;
+    private int accountType;
     private String accountName;
-    private double accountNumber;
+    private int accountNumber;
     private int sortCode;
     private double balance;
     
-    public Account(int accountId, char accountType, String accountName){
+    public Account(int accountId, int accountType, String accountName){
         this.accountId = accountId;
         this.accountType = accountType;
         this.accountName = accountName;
@@ -25,7 +25,7 @@ public class Account {
         sortCode = 0;
         balance = 0;
     }
-    public Account(int accountId, char accountType, String accountName, double acountNumber, int sortCode){
+    public Account(int accountId, int accountType, String accountName, int acountNumber, int sortCode){
         this.accountId = accountId;
         this.accountType = accountType;
         this.accountName = accountName;
@@ -40,5 +40,22 @@ public class Account {
                 "\n Accounr_Number: " + accountNumber +
                 "\n Sort_Code: " + sortCode +
                 "\n Balance: £" + balance;      
+    }
+    public String setAccountName(String newAccountName){
+        accountName = newAccountName;
+        return newAccountName;
+    }
+   
+    public int setAccountNumber(int newNumber){
+        accountNumber = newNumber;
+        return newNumber;
+    }
+    public static int setSortCode(int newCode){
+       int sortCode = newCode;
+        return newCode;
+    }
+    public static double setBalance(double newBalance){
+        double balance = newBalance;
+        return newBalance;
     }
 }
