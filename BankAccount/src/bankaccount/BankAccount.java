@@ -5,8 +5,8 @@
  */
 package bankaccount;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
  *
  * @author harun
@@ -20,9 +20,14 @@ public class BankAccount {
     {
         // TODO code application logic here
         Scanner in = new Scanner(System.in);
-        Account savings = new Account(1,'T', "green", 74742, 204660);
-        Account current = new Account(2,'H', "blue", 3639, 601516);
-        System.out.println(savings.toString() + "\n" + "\n" + current.toString());
+        System.out.println("Please enter your account details ");
+        Account c1 = new Account(   in.nextInt(), 
+                                    in.nextInt(), 
+                                    in.next(), 
+                                    in.nextInt(), 
+                                    in.nextInt()
+                                );
+        System.out.println("Please enter your account details " + c1.setAccountName("Harun"));
+        System.out.println(c1.toString());
     }
-    
 }
