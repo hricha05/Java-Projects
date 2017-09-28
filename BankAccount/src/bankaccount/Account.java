@@ -10,12 +10,12 @@ package bankaccount;
  * @author harun
  */
 public class Account {
-    private int accountId;
-    private int accountType;
-    private String accountName;
-    private int accountNumber;
-    private int sortCode;
-    private double balance;
+    int accountId;
+    int accountType;
+    String accountName;
+    int accountNumber;
+    int sortCode;
+    double balance;
     
     public Account(int accountId, int accountType, String accountName){
         this.accountId = accountId;
@@ -25,9 +25,7 @@ public class Account {
         sortCode = 0;
         balance = 0;
     }
-    public Account(int accountId, int accountType, String accountName, int acountNumber, int sortCode){
-        this.accountId = accountId;
-        this.accountType = accountType;
+    public Account(String accountName, int acountNumber, int sortCode){
         this.accountName = accountName;
         this.accountNumber = accountNumber;
         this.sortCode = sortCode;

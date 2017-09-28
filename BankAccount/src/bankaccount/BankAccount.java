@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author harun
  */
 public class BankAccount {
+    
 
     /**
      * @param args the command line arguments
@@ -20,14 +21,8 @@ public class BankAccount {
     {
         // TODO code application logic here
         Scanner in = new Scanner(System.in);
-        System.out.println("Please enter your account details ");
-        Account c1 = new Account(   in.nextInt(), 
-                                    in.nextInt(), 
-                                    in.next(), 
-                                    in.nextInt(), 
-                                    in.nextInt()
-                                );
-        System.out.println("Please enter your account details " + c1.setAccountName("Harun"));
-        System.out.println(c1.toString());
+        System.out.println("Please enter your account  ");
+        Account c1 = new Account();
+        c1.setAccountName("Harun Richards");
     }
 }
